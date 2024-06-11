@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Message Management</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .message-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+        .message-container h2 {
+            margin-bottom: 20px;
+        }
+        .message-container .form-group {
+            margin-bottom: 15px;
+        }
+        .message-list {
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="message-container">
+        <h2 class="text-center">Kullanıcı Mesajları</h2>
+        <div class="message-list">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Kimden : </strong> aliburak@gmail.com<br>
+                    <strong>Tarih : </strong> 15.05.2024<br>
+                    <button class="btn btn-primary btn-sm mt-2" onclick="readMessage('aliburak@gmail.com', 'Her şey harika, teşekkürler')">Mesajı Oku</button>
+                </li>
+            </ul>
+        </div>
+        <form id="messageForm">
+            <div class="form-group">
+                <label for="from">Kimden</label>
+                <input type="text" class="form-control" id="from" name="from" readonly>
+            </div>
+            <div class="form-group">
+                <label for="receivedMessage">Gelen Mesaj</label>
+                <textarea class="form-control" id="receivedMessage" name="receivedMessage" rows="3" readonly></textarea>
+            </div>
+            <div class="form-group">
+                <label for="response">Cevabınız</label>
+                <textarea class="form-control" id="response" name="response" rows="5" required></textarea>
+            </div>
+            <div class="form-group text-center">
+                <button type="button" class="btn btn-success" onclick="sendResponse()">Cevabınızı Gönderin</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function readMessage(from, message) {
+            document.getElementById('from').value = from;
+            document.getElementById('receivedMessage').value = message;
+        }
+
+        function sendResponse() {
+            alert('Cevabınız Başarıyla Gönderildi!');
+        }
+    </script>
+</body>
+</html>

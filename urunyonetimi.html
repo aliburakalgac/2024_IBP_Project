@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Ürün Düzenleme</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .product-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .product-container h2 {
+            margin-bottom: 20px;
+        }
+        .product-container .form-group {
+            margin-bottom: 15px;
+        }
+        .product-container .btn {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <h2 class="text-center">Ürün Yönetimi</h2>
+        <form method="POST" action="/product/add">
+            <div class="form-group">
+                <label for="productId"> Yeni Ürün Kodu</label>
+                <input type="text" class="form-control" id="productId" name="productId" required>
+            </div>
+            <div class="form-group">
+                <label for="productName">Yeni Ürün İsmi</label>
+                <input type="text" class="form-control" id="productName" name="productName" required>
+            </div>
+            <div class="form-group">
+                <label for="productDescription"> Yeni Ürün Açıklaması</label>
+                <textarea class="form-control" id="productDescription" name="productDescription" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Yeni Ürün Ekle</button>
+        </form>
+
+        <hr>
+
+        <form method="POST" action="/product/update">
+            <div class="form-group">
+                <label for="productId">Mevcut Ürün Kodu</label>
+                <input type="text" class="form-control" id="productId" name="productId" required>
+            </div>
+            <div class="form-group">
+                <label for="updatedProductName">Mevcut Ürün İsmi</label>
+                <input type="text" class="form-control" id="updatedProductName" name="updatedProductName" required>
+            </div>
+            <div class="form-group">
+                <label for="updatedProductDescription">Mevcut Ürün açıklaması</label>
+                <textarea class="form-control" id="updatedProductDescription" name="updatedProductDescription" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Mevcut Ürünü Güncelle</button>
+        </form>
+
+        <hr>
+
+        <form method="POST" action="/product/delete">
+            <div class="form-group">
+                <label for="deleteProductId">Silinecek Ürününün Kodu</label>
+                <input type="text" class="form-control" id="deleteProductId" name="deleteProductId" required>
+            </div>
+            <button type="submit" class="btn btn-danger">Ürünü Sil</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
